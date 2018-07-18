@@ -1,0 +1,21 @@
+{
+    "name": "michaelm/array_helpers",
+    "description": "Array helpers functions based on laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "michael",
+            "email": "michael@frostweb.co.za"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        },
+        "files": [
+            "app/Support/array_func.php"
+        ]
+    },
+    "require": {}
+}
