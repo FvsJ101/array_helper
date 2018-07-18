@@ -2,8 +2,7 @@
 
 require_once "vendor/autoload.php";
 
-
-//**** ARRAY GET, HAS, ONLY, FORGET ****//
+//**** ARRAY GET, HAS, ONLY, FORGET EXAMPLES ****//
 
 /*$user = [
     "name" => "Mike",
@@ -29,10 +28,9 @@ echo '<pre>',print_r($result,true),'</pre>';*/
 
 echo '<pre>',print_r($user,true),'</pre>';*/
 
-
 //**** **** ****//
 
-//**** ARRAY FIRST, WHERE, LAST ****//
+//**** ARRAY FIRST, WHERE, LAST EXAMPLES****//
 /*$users = [
    ["name" => "Mike", "score" => 100],
    ["name" => "Tim", "score" => 110],

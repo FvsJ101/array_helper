@@ -9,6 +9,8 @@ class ArrayHelper
 {
     
     /**
+     * Check if is an array
+     *
      * @param $array
      * @return bool
      */
@@ -18,6 +20,8 @@ class ArrayHelper
     }
     
     /**
+     * Check if the key exists in the array
+     *
      * @param $array
      * @param $key
      * @return bool
@@ -32,6 +36,8 @@ class ArrayHelper
     }
     
     /**
+     * Return the value at specified key
+     *
      * @param $array
      * @param $keys
      * @param null $default
@@ -68,6 +74,8 @@ class ArrayHelper
     }
     
     /**
+     * Returns the first collection at set key
+     *
      * @param $array
      * @param null $callback
      * @param null $default
@@ -98,42 +106,70 @@ class ArrayHelper
         return $default;
     }
     
+    /**
+     * Returns results in array basked on callback
+     *
+     * @param $array
+     * @param $callback
+     * @return array
+     */
     public static function where($array, $callback)
     {
         return array_filter($array, $callback, ARRAY_FILTER_USE_BOTH);
     }
     
+    /**
+     * Returns only collection set by keys
+     *
+     * @param $array
+     * @param $keys
+     * @return array
+     */
     public static function only($array, $keys)
     {
         
-        return array_intersect_key($array, array_flip((array) $keys));
-  
+        return array_intersect_key($array, array_flip((array)$keys));
+        
     }
     
+    /**
+     * Returns last collection of info based on key or callback
+     *
+     * @param $array
+     * @param null $callback
+     * @param null $default
+     * @return mixed|null
+     */
     public static function last($array, $callback = NULL, $default = NULL)
     {
         if (is_null($callback)) {
-        
+            
             if (empty($array)) {
                 return $default;
             }
-        
+            
             return end($array);
-        
+            
         }
-
-        return static::first( array_reverse($array, true), $callback, $default);
+        
+        return static::first(array_reverse($array, true), $callback, $default);
         
     }
     
+    /**
+     * Removes from given array
+     *
+     * @param $array
+     * @param $keys
+     */
     public static function forget(&$array, $keys)
     {
         
         $original = &$array;
-        $keys = (array) $keys;
-    
+        $keys = (array)$keys;
+        
         foreach ($keys as $key) {
-    
+            
             if (static::exists($array, $key)) {
                 unset($array[$key]);
                 continue;
@@ -145,12 +181,12 @@ class ArrayHelper
             
             while (count($parts) > 1) {
                 $part = array_shift($parts);
-    
+                
                 if (static::accessible($array) && static::exists($array, $part)) {
-    
+                    
                     $array = &$array[$part];
                 } else {
-        
+                    
                     continue 2;
                 }
                 
@@ -164,6 +200,8 @@ class ArrayHelper
     }
     
     /**
+     * Checks is one or more keys exists in the array.
+     *
      * @param $array
      * @param mixed $key
      * @return bool
