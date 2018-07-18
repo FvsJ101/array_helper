@@ -33,7 +33,7 @@ echo '<pre>',print_r($user,true),'</pre>';*/
 //**** **** ****//
 
 //**** ARRAY FIRST, WHERE, LAST ****//
-$users = [
+/*$users = [
    ["name" => "Mike", "score" => 100],
    ["name" => "Tim", "score" => 110],
    ["name" => "Ralf", "score" => 120],
@@ -42,7 +42,7 @@ $users = [
 $user = array_last($users, function ($value, $key) {
     return array_get($value, 'score') < 110;
 });
-echo '<pre>',print_r($user,true),'</pre>';
+echo '<pre>',print_r($user,true),'</pre>';*/
 
 /*$user = array_first($users, function ($value, $key){
     
